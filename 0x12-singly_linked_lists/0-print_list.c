@@ -4,7 +4,6 @@
 (* a blank line
  *@h: the list
 * Description: print the elements of one list)?
-(* section header: the header of this function is lists.h)*
 * Return: this return the num of the elements in the list
  */
 size_t print_list(const list_t *h)
