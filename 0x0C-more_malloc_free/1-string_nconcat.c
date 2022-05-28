@@ -1,53 +1,52 @@
 #include "main.h"
 #include <stdlib.h>
-#include <stdio.h>
 
 /**
-  * str_concat - Concatenates two strings of any size
-  * @s1: the first string to concatenate
-  * @s2: the second string to concatenate
+  * string_nconcat - ...
+  * @s1: ...
+  * @s2: ...
+  * @n: ...
   *
-  * Return: the two strings concatenated
+  * Return: ...
   */
-char *str_concat(char *s1, char *s2)
+char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	int i = 0, j = 0, k = 0, l = 0;
-	char *s;
+	unsigned int i = 0, j = 0, k = 0, l = 0;
+	char *str;
 
 	if (s1 == NULL)
 		s1 = "";
-
 	if (s2 == NULL)
 		s2 = "";
 
 	while (s1[i])
 		i++;
 
-	while (s2[j])
-		j++;
+	while (s2[k])
+		k++;
 
-	l = i + j;
-	s = malloc((sizeof(char) * l) + 1);
+	if (n >= k)
+		l = i + k;
+	else
+		l = i + n;
 
-	if (s == NULL)
+	str = malloc(sizeof(char) * l + 1);
+	if (str == NULL)
 		return (NULL);
 
-	j = 0;
-
-	while (k < l)
+	k = 0;
+	while (j < l)
 	{
-		if (k <= i)
-			s[k] = s1[k];
+		if (j <= i)
+			str[j] = s1[j];
 
-		if (k >= i)
+		if (j >= i)
 		{
-			s[k] = s2[j];
-			j++;
+			str[j] = s2[k];
+			k++;
 		}
-
-		k++;
+		j++;
 	}
-
-	s[k] = '\0';
-	return (s);
+	str[j] = '\0';
+	return (str);
 }
